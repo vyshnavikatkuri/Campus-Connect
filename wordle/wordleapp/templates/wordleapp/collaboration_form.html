@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collaboration Form</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+    <!-- Font Awesome (For Icons) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Stylesheet -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wordleapp/lost.css' %}" />
+    <style>
+        .error-message {
+            color: red;
+            font-size: 0.9rem;
+            display: none;
+        }
+        .button:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form method="post" action="{% url 'process_collaboration' %}" class="login" onsubmit="return validateForm()">
+                    {% csrf_token %}
+                    
+                    <div class="login__field">
+                        <input type="text" name="event_name" id="event_name" required class="login__input" placeholder="Event Name">
+                        <p class="error-message" id="event_name_error">Event name is required.</p>
+                    </div>
+
+                    <div class="login__field">
+                        <input type="text" name="organizer" class="login__input" placeholder="Organizer (if applicable)">
+                    </div>
+
+                    <div class="login__field">
+                        <input type="text" name="collaboration_descr" id="collaboration_descr" required class="login__input" placeholder="Brief Description">
+                        <p class="error-message" id="collaboration_descr_error">Description is required.</p>
+                    </div>
+
+                    <div class="login__field">
+                        <input type="text" name="skills_preferred" id="skills_preferred" required class="login__input" placeholder="Skills Preferred (e.g., Web Dev, ML, UI/UX)">
+                        <p class="error-message" id="skills_preferred_error">Skills preferred is required.</p>
+                    </div>
+
+                    <div class="login__field">
+                        <input type="number" name="team_size" id="team_size" required class="login__input" placeholder="Required Team Size" min="1">
+                        <p class="error-message" id="team_size_error">Please enter a valid team size.</p>
+                    </div>
+
+                    <div class="login__field">
+                        <input type="date" name="deadline" id="deadline" required class="login__input">
+                        <p class="error-message" id="deadline_error">Please select a deadline.</p>
+                    </div>
+
+                    <div class="login__field">
+                        <input type="text" name="posted_by" id="posted_by" required class="login__input" placeholder="Posted By (Your Name)">
+                        <p class="error-message" id="posted_by_error">Your name is required.</p>
+                    </div>
+
+                    <div class="login__field">
+                        <input type="email" name="contact_email" id="contact_email" required class="login__input" placeholder="Contact Email">
+                        <p class="error-message" id="contact_email_error">Enter a valid email address.</p>
+                    </div>
+
+                    <button type="submit" class="button login__submit" id="submitBtn">
+                        <span class="button__text">Submit</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>    
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>    
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+            const fields = [
+                "event_name", "collaboration_descr", "skills_preferred",
+                "team_size", "deadline", "posted_by", "contact_email"
+            ];
+
+            fields.forEach(field => {
+                let input = document.getElementById(field);
+                let errorMessage = document.getElementById(field + "_error");
+                if (!input.value.trim()) {
+                    errorMessage.style.display = "block";
+                    isValid = false;
+                } else {
+                    errorMessage.style.display = "none";
+                }
+            });
+
+            // Validate team size (should be greater than 0)
+            let teamSize = document.getElementById("team_size");
+            if (teamSize.value <= 0) {
+                document.getElementById("team_size_error").style.display = "block";
+                isValid = false;
+            }
+
+            // Validate email
+            let email = document.getElementById("contact_email").value;
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("contact_email_error").style.display = "block";
+                isValid = false;
+            }
+
+            // Disable submit button on valid submission to prevent multiple clicks
+            if (isValid) {
+                document.getElementById("submitBtn").disabled = true;
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>

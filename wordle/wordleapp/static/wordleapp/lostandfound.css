@@ -1,0 +1,525 @@
+body {
+    font-family: 'lato', sans-serif;
+    background-color: #EFE9D5;
+width: 100%;
+max-width: 100%
+  }
+
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* body {
+    font-family: "Poppins", sans-serif;
+  }
+   */
+  .container1 {
+    /* max-width: 1050px; */
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+    margin: auto;
+  }
+  /* Navbar */
+.navbar {
+  background-color: #497D74; /* Dark blue */
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  height: 60px;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+}
+
+.nav-menu li {
+  margin: 0 15px;
+}
+
+.nav-menu a {
+  color: #EFE9D5; /* Off-white text */
+  text-decoration: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #71BBB2; /* Light teal hover effect */
+}
+
+/* Profile Icon */
+.profile-icon i {
+  font-size: 28px;
+  color: #EFE9D5; /* Off-white icon */
+  cursor: pointer;
+}
+
+.profile-icon i:hover {
+  color: #71BBB2; /* Light teal hover effect */
+}
+
+/* Content Styling */
+.content {
+  padding: 50px;
+  text-align: center;
+}
+
+h1 {
+  color: #27445D; /* Dark blue text */
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+  }
+}
+  
+
+  .container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  h2 {
+    font-size: 26px;
+    margin: 20px 0;
+    text-align: center;
+    small {
+      font-size: 0.5em;
+    }
+  }
+  
+  .responsive-table {
+    li {
+        border-radius: 3px;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .table-header {
+        background-color: #497D74;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        display: flex;
+    }
+    .table-row {
+        background-color: #ffffff;
+        box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+        display: flex;
+    }
+    .col {
+        padding: 10px;
+        text-align: left;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+    .col-1 { flex-basis: 20%; }
+    .col-2 { flex-basis: 40%; }
+    .col-3 { flex-basis: 10%; }
+    .col-4 { flex-basis: 30%; }
+    
+    @media all and (max-width: 767px) {
+        .table-header {
+            display: none;
+        }
+        li {
+            display: block;
+        }
+        .col {
+            display: flex;
+            padding: 10px 0;
+        }
+        .col::before {
+            color: #497D74;
+            padding-right: 10px;
+            content: attr(data-label);
+            flex-basis: 50%;
+            text-align: right;
+        }
+    }
+}
+
+
+  .sup {
+    --lou: #d00;
+    font-size: 0.5vmin;
+    width: 85em;
+    height: 77em;
+    position: relative;
+    bottom: 0%;
+    left: 10%;
+    transform: translate(-50%, -0%);
+    background:
+      /* vertical bars */
+      linear-gradient(#592f2a, #814931) 0.2% 90% / 5% 50%,
+      linear-gradient(#592f2a, #814931) 99.8% 90% / 5% 50%,
+      /* shade */
+      linear-gradient(#0000 40%, #3218 0, #321f) 50% 100% / 90% 100%,
+      /* lou */
+      radial-gradient(at 0 0, #0000 53%, #000 53.5% 60%, #0000 60.5%) 74% 36% / 10% 10%,
+      radial-gradient(at 130% 0, #0000 56%, #000 56.5% 60%, #0000 60.5%) 20% 34% / 14% 14%,
+      radial-gradient(145% 80% at 71% 0, #0000 99%, var(--lou) 0) 53.5% -11.75% / 10% 30%,
+      radial-gradient(145% 80% at -10% 0, #0000 99%, var(--lou) 0) 19.75% 2.5% / 10% 30%,
+      radial-gradient(145% 80% at 110% 0, #0000 99%, var(--lou) 0) 75% 9.5% / 7% 28%,
+      radial-gradient(at 40% 28%, var(--lou) 18%, #0000 18.1%),
+      radial-gradient(at 60% 29%, var(--lou) 14%, #0000 14.1%),
+      radial-gradient(50% 50% at 73% 35%, var(--lou) 14%, #0000 14.1%),
+      radial-gradient(50% 50% at 21% 35%, var(--lou) 20%, #0000 20.1%),
+      radial-gradient( at 50% 60%, var(--lou) 40%, #0000 40.1%),
+      radial-gradient(60% 50% at 30% 60%, var(--lou) 40%, #0000 40.1%),
+      radial-gradient(60% 70% at 35% 22%, #78a4d8 20%, #0000 20.1%),
+      /* football */
+      radial-gradient(80% 66% at -50% 50%, #0000 97%, #dcc 97.1% 99%, #0000 99.5%) 120% 10% / 30% 56.6%,
+      linear-gradient(#dcc 0 0) 91% 15% / 3% 0.75%,
+      linear-gradient(#dcc 0 0) 92.5% 20% / 3% 0.75%,
+      linear-gradient(#dcc 0 0) 93.35% 25% / 3% 0.75%,
+      linear-gradient(#dcc 0 0) 93.75% 30% / 3% 0.75%,
+      linear-gradient(#dcc 0 0) 93.75% 35% / 3% 0.75%,
+      linear-gradient(#dcc 0 0) 91% 40% / 3% 0.75%,
+      radial-gradient(100% 58.5% at 150% 50%, brown 99%, #0000 99.5%) 77.5% 10% / 30% 56.6%,
+      radial-gradient(100% 58.5% at -50% 50%, brown 99%, #0000 99.5%) 120% 10% / 30% 56.6%,
+      /* racket */
+      radial-gradient(50% 50%, #0000 85%, #369 85.5% 99%, #0000 99.5%) 3% 0% / 40% 60%,
+      radial-gradient(#ccc 0 0) 15% 10% / 30% 0.5%,
+      radial-gradient(#ccc 0 0) 15% 13% / 40% 0.5%,
+      radial-gradient(#ccc 0 0) 15% 16% / 50% 0.5%,
+      radial-gradient(#ccc 0 0) 15% 19% / 60% 0.5%,
+      radial-gradient(#ccc 0 0) 10% 22% / 50% 0.5%,
+      radial-gradient(#ccc 0 0) 15% 25% / 70% 0.5%,
+      radial-gradient(#ccc 0 0) 15% 28% / 70% 0.5%,
+      radial-gradient(#ccc 0 0) 15% 31% / 70% 0.5%,
+      radial-gradient(#ccc 0 0) 15% 34% / 70% 0.5%,
+      radial-gradient(#ccc 0 0) 15% 37% / 70% 0.5%,
+      
+      radial-gradient(#ccc 0 0) 7% 20% / 0.5% 30%,
+      radial-gradient(#ccc 0 0) 10% 15% / 0.5% 50%,
+      radial-gradient(#ccc 0 0) 13% 15% / 0.5% 50%,
+      radial-gradient(#ccc 0 0) 16% 5% / 0.5% 50%,
+      radial-gradient(#ccc 0 0) 19% 5% / 0.5% 50%,
+      radial-gradient(#ccc 0 0) 22% 5% / 0.5% 50%,
+      radial-gradient(#ccc 0 0) 25% 5% / 0.5% 50%,
+      radial-gradient(#ccc 0 0) 28% 5% / 0.5% 50%,
+      radial-gradient(#ccc 0 0) 31% 15% / 0.5% 40%,
+      /* background toys inside box */
+      radial-gradient(60% 50% at 50% 90%, green 80%, #0000 0),
+      radial-gradient(20% 50% at 20% 80%, blue 80%, #0000 0),
+      radial-gradient(20% 50% at 80% 80%, orange 80%, #0000 0),
+      #f000
+      ;
+    background-repeat: no-repeat;
+    
+  /*   &::before {
+      content:"";
+  
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      height: 100%;
+      width: 70%;
+      transform: translate(-50%, 0);
+      background:
+        radial-gradient(30% 50% at 40% 50%, red 80%, #0000 0),
+        radial-gradient(40% 36% at 75% 36%, red 40%, #0000 0),
+        radial-gradient(30% 45% at 18% 40%, red 40%, #0000 0)
+        #fff;
+      filter: blur(2em) contrast(2000) brightness(20) hue-rotate(10deg);
+      mix-blend-mode: multiply;
+    } */
+    
+    &::before {
+      --height: 24%;
+      content: "OST AND \a F      ND";
+      font-family: "Times New Roman", "Times", serif;
+      white-space: pre;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 9em;
+      line-height: 1.33em;
+      width: 100%;
+      height: 63%;
+      background: 
+        /* fake texture */
+        radial-gradient(70% 1% at 30% 5%, #c633 80%, #0000 0) 50% 50% / 100% 40%,
+        radial-gradient(60% 1.3% at 30% 5%, #c632 80%, #0000 0) 30% 50% / 70% 30%,
+        radial-gradient(50% 0.7% at 30% 5%, #c632 80%, #0000 0) 30% 50% / 50% 70%,
+        radial-gradient(60% 1% at 30% 5%, #c632 80%, #0000 0) 0% 10% / 60% 38%,
+        radial-gradient(80% 1.3% at 30% 5%, #a412 80%, #0000 0) 70% 20% / 66% 30%,
+        radial-gradient(100% 1.1% at 30% 5%, #c632 80%, #0000 0) 0% 17% / 70% 50%,
+        radial-gradient(60% 3% at 50% 0, #c632 80%, #0000 0) 0% 10% / 70% 30% repeat-y,
+        radial-gradient(40% 4% at 70% 5%, #b522 80%, #0000 0) 100% 2% / 70% 20%,
+        /* wood stains */
+        radial-gradient(80% 50% at 20% 20%, #c0824334 10%, #0000 25%),
+        radial-gradient(140% 50% at 90% 45%, #c0824324 10%, #0000 15%),
+        radial-gradient(100% 50% at 70% 50%, #c0824324 10%, #0000 15%),
+        /* base */
+        linear-gradient(to top right, #0001, #ffc5),
+        #f0a274;
+      color: #fac556;
+      text-shadow: 
+        0.01em -0.01em 0.01em #ffe8,
+        -0.01em 0 0.01em #aa6536,
+        0.01em 0.01em 0.01em #aa6536,
+        -0.025em 0.025em 0.01em #aa6536;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      -webkit-mask: repeating-linear-gradient(#000 0 23.5%, #0000 0 25.5%);
+      mask: repeating-linear-gradient(#000 0 23.5%, #0000 0 25.5%);
+      border-radius: 0.5vmin 0.25vmin 0.6vmin 0.5vmin;
+    }
+    
+    &::after {
+      --screw: #4027;
+      --screw-width: 0.24em;
+      content: "";
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      height: 90%;
+      background: 
+        /* baseball 1 + buttons */
+        radial-gradient(farthest-side at 60% 0, #0000 75%, #a00 76% 85%, #0000 86%) 38.25% 7.5% / 13.5% 3.5%,
+        radial-gradient(farthest-side at 60% 120%, #0000 70%, #a00 71% 85%, #0000 86%) 39% 23.2% / 8% 1.75%,
+        linear-gradient(-45deg, #0000 46%, #a00 0 54%, #0000 0) 35% 8.2% / 5% 1.5%,
+        linear-gradient(-55deg, #0000 46%, #a00 0 54%, #0000 0) 36.5% 8.8% / 5% 1.5%,
+        linear-gradient(-65deg, #0000 46%, #a00 0 54%, #0000 0) 38.25% 9.1% / 5% 1.75%,
+        linear-gradient(-85deg, #0000 46%, #a00 0 54%, #0000 0) 40% 9.3% / 5% 2%,
+        linear-gradient(-95deg, #0000 46%, #a00 0 54%, #0000 0) 42% 9.3% / 5% 2%,
+        linear-gradient(-105deg, #0000 46%, #a00 0 54%, #0000 0) 43.75% 9% / 5% 2%,
+        linear-gradient(-115deg, #0000 46%, #a00 0 54%, #0000 0) 45.2% 8.7% / 5% 1.75%,
+        
+        linear-gradient(-105deg, #0000 46%, #a00 0 54%, #0000 0) 37% 23.2% / 5% 2%,
+        linear-gradient(-90deg, #0000 46%, #a00 0 54%, #0000 0) 39% 23% / 5% 1.75%,
+        linear-gradient(-80deg, #0000 46%, #a00 0 54%, #0000 0) 41% 22.8% / 5% 1.85%,
+        linear-gradient(-60deg, #0000 46%, #a00 0 54%, #0000 0) 43% 23.3% / 5% 1.75%,
+        
+        radial-gradient(circle at 38.5% 15.5%, #ccc 0.25%, #0000 0),
+        radial-gradient(circle at 39.5% 15.5%, #ccc 0.25%, #0000 0),
+        radial-gradient(circle at 38.5% 16.5%, #ccc 0.25%, #0000 0),
+        radial-gradient(circle at 39.5% 16.5%, #ccc 0.25%, #0000 0),
+        radial-gradient(circle at 39% 16%, #000, #222 2.2%, #000 0 3%, #0000 3.1%),
+        radial-gradient(circle at 40% 15%, #eee 9%, #0000 9.1%),
+        /* baseball 2 + buttons */
+        radial-gradient(60% 120% at 50% 140%, #0000 89%, var(--lou) 90%) 62% 9.5% / 14% 5%,
+        radial-gradient(farthest-side at 60% 120%, #0000 70%, #a00 71% 85%, #0000 86%) 61% 25% / 8% 2%,
+        linear-gradient(-125deg, #0000 46%, #a00 0 54%, #0000 0) 59% 25% / 5% 1.7%,
+        linear-gradient(-105deg, #0000 46%, #a00 0 54%, #0000 0) 61% 24.75% / 5% 1.7%,
+        linear-gradient(-85deg, #0000 46%, #a00 0 54%, #0000 0) 63% 24.75% / 5% 1.7%,
+        radial-gradient(circle at 60.5% 18.5%, #ccc 0.25%, #0000 0),
+        radial-gradient(circle at 61.5% 18.5%, #ccc 0.25%, #0000 0),
+        radial-gradient(circle at 60.5% 19.5%, #ccc 0.25%, #0000 0),
+        radial-gradient(circle at 61.5% 19.5%, #ccc 0.25%, #0000 0),
+        radial-gradient(circle at 61% 19%, #000, #222 2.2%, #000 0 3%, #0000 3.1%),
+        radial-gradient(circle at 60% 18%, #eee 8%, #0000 8.1%),
+        /* screws letters */
+        radial-gradient(at 20.25% 53%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 20.25% 60%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 27.25% 56.5%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 33% 56.5%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 35.25% 54.5%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 38.5% 58%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 43.1% 53%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 43.1% 60%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 52% 53.2%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 49.4% 60%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 54.2% 60%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 57.75% 53.25%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 61.6% 59.25%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 65.2% 53%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 65.2% 60%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 70% 56.5%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 33.2% 70%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 33.2% 77%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 39% 73%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 45% 73.75%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 47% 74.5%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 51% 75%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 55% 70.25%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 59% 76.25%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 62.5% 70%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 62.5% 77%, var(--screw) var(--screw-width), #0000 0),
+        radial-gradient(at 67.5% 73.5%, var(--screw) var(--screw-width), #0000 0),
+        /* missing letters */
+        
+        linear-gradient(#ffc2 0 0) 20% 57% / 1.2% 9%,
+        linear-gradient(#ffc2 0 0) 21.8% 60.25% / 4% 1.25%,
+        radial-gradient(50% 75% at 42% 73%, #0000 5%, #ffc2 0 6.6%, #0000 0),
+        linear-gradient(90deg, #ffc2 20%, #0000 0 80%, #ffc2 0) 49% 75% / 5% 6%,
+        radial-gradient(farthest-side at 50% 0, #0000 60%, #ffc2 0 99%, #0000) 49% 79% / 5% 3%,
+        #f000;
+      background-repeat: no-repeat;
+    }
+  }
+
+
+  /* body{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+  } */
+  
+  :root{
+    --bg-color-1: #ffffff;
+    --bg-color-2: #497D74;
+    --bg-color-3: #71BBB2;
+    --padding: 1rem 4rem;
+    --font-family: monospace;
+    --step: 0.5rem;
+  }
+  
+  /*   transform: translate3d(-0.5rem, -0.5rem, 0) */
+  button:is(:hover, :focus-visible) {
+    --active: 1;
+  }
+  
+  button {
+    --active: 0;
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-weight: bold;
+    border: 0;
+    background: transparent;
+    padding: 0;
+  }
+  
+  button span:first-of-type {
+    padding: var(--padding);
+  }
+  
+  button span:not(:first-of-type) {
+    position: absolute;
+  }
+  
+  [aria-hidden] { color: transparent; }
+  button span {
+    inset: 0;
+    display: grid;
+    background: var(--bg);
+    place-items: center;
+    transition: 0.2s ease;
+    border: 2px solid black;
+  /*   transform:
+      translate(
+        calc((var(--active) * var(--coefficient, 0)) * (var(--step) * -1)),
+        calc((var(--active) * var(--coefficient, 0)) * (var(--step) * -1))
+      ); */
+    translate:
+      calc((var(--active) * var(--coefficient, 0)) * (var(--step) * -1))
+      calc((var(--active) * var(--coefficient, 0)) * (var(--step) * -1))
+    ;
+  }
+  
+  span:nth-of-type(1) {
+    --bg: var(--bg-color-3);
+  }
+  
+  span:nth-of-type(2) {
+    --coefficient: 1;
+    --bg: var(--bg-color-2);
+  }
+  
+  span:nth-of-type(3) {
+    --coefficient: 2;
+    --bg: var(--bg-color-1);
+  }
+  
+  button:active {
+    --active: 0.5;
+  } 
+
+  .bottomcontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    place-items: center;
+
+  }
+  /* .responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.responsive-table thead {
+    background-color: #f0b877;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.responsive-table th, 
+.responsive-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.responsive-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.responsive-table tbody tr:hover {
+    background-color: #f1e3d3;
+    cursor: pointer;
+}
+
+
+@media (max-width: 767px) {
+    .responsive-table thead {
+        display: none;
+    }
+
+    .responsive-table tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .responsive-table tbody td {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .responsive-table tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        text-align: left;
+        font-weight: bold;
+    }
+} */

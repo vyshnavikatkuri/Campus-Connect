@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collaboration</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wordleapp/collaboration.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #EFE9D5; /* Off-white background */
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #497D74; /* Dark blue */
+  /* padding: 15px; */
+  position: sticky;
+  top: 0;
+  height: 60px;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20%;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+}
+
+.nav-menu li {
+  margin: 0 15px;
+}
+
+.nav-menu a {
+  color: #EFE9D5; /* Off-white text */
+  text-decoration: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #71BBB2; /* Light teal hover effect */
+}
+
+/* Profile Icon */
+.profile-icon i {
+  font-size: 28px;
+  color: #EFE9D5; /* Off-white icon */
+  cursor: pointer;
+}
+
+.profile-icon i:hover {
+  color: #71BBB2; /* Light teal hover effect */
+}
+
+/* Content Styling */
+.content {
+  padding: 50px;
+  text-align: center;
+}
+
+h1 {
+  color: #27445D; /* Dark blue text */
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+  }
+  
+}
+  </style>
+  </head>
+  <body style="background-color: #EFE9D5;">
+    <!-- <nav>
+      <div class="navbar">
+        <div class="container1 nav-container" style="z-index: 2;">
+            <input class="checkbox" type="checkbox" name="" id="" />
+            <div class="hamburger-lines">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+            </div>  
+          <div class="logo"><h1></h1></div>
+          <div class="menu-items">
+            <li><a href="/">Campus Central</a></li>
+            <li><a href="/issuecentral/">Issue Center</a></li>
+            <li><a href="/lostandfound/">Lost & Found</a></li>
+            <li><a href="/collaboration/">Collaboration</a></li>
+          </div>
+        </div>
+      </div>
+    </nav> -->
+    <nav class="navbar" style="margin-right: 20px;">
+      <div class="nav-container" >
+        <ul class="nav-menu" style="color: #EFE9D5; ">
+          <li><a href="http://127.0.0.1:8000/home/" style="color: #EFE9D5; font-size: 16px;" >Home</a></li>
+            <li><a href="http://127.0.0.1:8000/issuecentral/" style="color: #EFE9D5; font-size: 16px;">Issue Center</a></li>
+            <li><a href="http://127.0.0.1:8000/lostandfound/" style="color: #EFE9D5; font-size: 16px;">Lost & Found</a></li>
+            <li><a href="http://127.0.0.1:8000/collaboration/" style="color: #EFE9D5; font-size: 16px;">Collaboration</a></li>
+            <li><a href="http://127.0.0.1:8000/peertutor/" style="color: #EFE9D5; font-size: 16px;">Peer Tutor</a></li>
+        </ul>
+        <div class="profile-icon" style="margin-right: 20px;">
+          <i class="fa-solid fa-user-circle"></i>
+        </div>
+      </div>
+    </nav>
+    <div style="display:flex; flex-direction: row; justify-content: space-between; align-items: center; margin:3%; z-index: -1;">
+      <a href="http://127.0.0.1:8000/collaborationform/">
+        <button>
+          <span aria-hidden="true">Post Issue</span>
+          <span></span>
+          <span>Post Collaboration</span>
+        </button> 
+      </a>  
+      <input type="text" id="searchBar" placeholder="Search collaborations..." onkeyup="filterCollaborations()">
+    </div>
+    
+    <!-- <div class="main">
+        {% for collab in collabs %}
+        <ul class="cards">
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_content">
+                <h2 class="card_title">{{ collab.event_name }}</h2>
+                <p><strong>Organizer:</strong> {{ collab.organizer }}</p>
+                <p><strong>Description:</strong> {{ collab.collaboration_descr }}</p>
+                <p><strong>Skills Preferred:</strong> {{ collab.skills_preferred }}</p>
+                <p><strong>Team Size:</strong> {{ collab.team_size }}</p>
+                <p><strong>Deadline:</strong> {{ collab.deadline }}</p>
+                <p><strong>Posted By:</strong> {{ collab.posted_by }}</p>
+                <button class="join-btn" onclick="openResumeForm(this)">Request to Join</button>
+                <div class="resume-form" style="display: none;">
+                  <h2>Submit Your Resume</h2>
+                  <form>
+                    <input type="file" accept=".pdf,.doc,.docx">
+                    <button type="submit">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        {% endfor %}
+    </div> -->
+    <div class="main">
+      {% for collab in collabs %}
+        <ul class="cards">
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_content">
+                <h2 class="card_title">{{ collab.event_name }}</h2>
+                <p><strong>Organizer:</strong> {{ collab.organizer }}</p>
+                <p><strong>Description:</strong> {{ collab.collaboration_descr }}</p>
+                <p><strong>Skills Preferred:</strong> {{ collab.skills_preferred }}</p>
+                <p><strong>Team Size:</strong> {{ collab.team_size }}</p>
+                <p><strong>Deadline:</strong> {{ collab.deadline }}</p>
+                <p><strong>Posted By:</strong> {{ collab.posted_by }}</p>
+                <p><strong>Contact Email:</strong> {{ collab.contact_email }}</p>
+                <button class="join-btn" onclick="openResumeForm(this)">Request to Join</button>
+                <div class="resume-form" style="display: none;">
+                  <h2>Submit Your Resume</h2>
+                  <form class="resume-upload-form" method="POST" action="{% url 'submit_resume' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="collab_id" value="{{ collab.id }}">
+                    <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
+                    <button type="submit">Submit</button>
+                  </form>
+                </div>
+                <!-- Show 'View Applications' button only to the author
+                {% if collab.posted_by == user %}
+                  <button class="view-applications-btn" onclick="toggleApplications({{ collab.id }})">
+                    View Applications
+                  </button>
+                  <div id="applications-{{ collab.id }}" class="applications-list" style="display: none;">
+                    <h3>Applications:</h3>
+                    {% for application in collab.applications.all %}
+                      <div class="application">
+                        <p><strong>Applicant:</strong> {{ application.user.username }}</p>
+                        <p><strong>Message:</strong> {{ application.message }}</p>
+                        <p><strong>Status:</strong> {{ application.get_status_display }}</p>
+                        <a href="{{ application.resume.url }}" target="_blank">View Resume</a>
+                        <button onclick="window.location.href='{% url 'update_application_status' application.id 'accepted' %}'">Accept</button>
+                        <button onclick="window.location.href='{% url 'update_application_status' application.id 'rejected' %}'">Reject</button>
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% endif %} -->
+              </div>
+            </div>
+          </li>
+        </ul>
+      {% endfor %}
+    </div>
+
+    <script>
+      // Function to toggle the visibility of the applications
+      function toggleApplications(collabId) {
+        const applicationsDiv = document.getElementById("applications-" + collabId);
+        if (applicationsDiv.style.display === "none") {
+          applicationsDiv.style.display = "block";
+        } else {
+          applicationsDiv.style.display = "none";
+        }
+      }
+    </script>
+    
+    <script>
+      function filterCollaborations() {
+        let input = document.getElementById("searchBar").value.toLowerCase();
+        let cards = document.querySelectorAll(".cards_item");
+        
+        cards.forEach(card => {
+          let title = card.querySelector(".card_title").innerText.toLowerCase();
+          let description = card.innerText.toLowerCase();
+          
+          if (title.includes(input) || description.includes(input)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+
+      // function openResumeForm(button) {
+      //   document.querySelectorAll(".resume-form").forEach(form => form.style.display = "none");
+      //   let form = button.nextElementSibling;
+      //   form.style.display = "block";
+      // }
+      
+function openResumeForm(button) {
+    let form = button.nextElementSibling;
+    form.style.display = form.style.display === "none" ? "block" : "none";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".resume-upload-form").forEach(form => {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            let formData = new FormData(this);
+            
+            fetch("{% url 'submit_resume' %}", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "X-CSRFToken": document.querySelector("[name=csrfmiddlewaretoken]").value
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    });
+});
+</script>
+
+
+  <div class="left">
+      <div class="cat">
+        <div class="ears1"></div>
+        <div class="head1">
+          <div class="eyes1"></div>
+          <div class="nose1"></div>
+        </div>
+        <div class="body1">
+          <div class="left-paw1"></div>
+          <div class="right-paw1"></div>
+        </div>
+        <div class="tail1"></div>
+        <div class="PRlaptop">
+          <div class="PRscreen"></div>
+          <div class="PRkeyboard"></div>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="dog">
+        <div class="ears2"></div>
+        <div class="head2">
+          <div class="eyes2"></div>
+          <div class="nose2"></div>
+        </div>
+        <div class="body2">
+          <div class="left-paw2"></div>
+          <div class="right-paw2"></div>
+        </div>
+        <div class="tail2"></div>
+        <div class="ORlaptop">
+          <div class="ORscreen"></div>
+          <div class="ORkeyboard"></div>
+        </div>
+      </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </body>
+</html>

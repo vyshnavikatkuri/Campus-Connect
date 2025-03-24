@@ -1,0 +1,142 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Central</title>
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+
+    <!-- Stylesheet -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wordleapp/user.css' %}" />
+    
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <div class="nav-container">
+          <ul class="menu-items" style="margin-left: 100px;">
+            <li><a href="http://127.0.0.1:8000/home/">Home</a></li>
+            <li><a href="http://127.0.0.1:8000/issuecentral/">Issue Center</a></li>
+            <li><a href="http://127.0.0.1:8000/lostandfound/">Lost & Found</a></li>
+            <li><a href="http://127.0.0.1:8000/collaboration/">Collaboration</a></li>
+            <li><a href="http://127.0.0.1:8000/peertutor/">Peer Tutor</a></li>
+          </ul>
+    
+          <!-- <div class="profile-icon" style="margin-left: 30px;">
+            <i class="fa-solid fa-user-circle" style="margin-left: 30px;"></i>
+          </div> -->
+          <div class="profile-icon">
+            <i class="fa-solid fa-user-circle" style="margin-right: -300px;"></i>
+          </div>
+          
+          <input type="checkbox" id="nav-toggle" class="checkbox">
+          <label for="nav-toggle" class="hamburger-lines">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+          </label>
+        </div>
+      </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container2">
+      <br>
+      <br>
+      <h2>Welcome To</h2>
+      <h1 contenteditable>Campus &emsp;  Central</h1>
+    </div>
+    <div id="building"></div>
+
+    <!-- <div style="display:flex; flex-direction: row; justify-content: space-between; align-items: center; margin:3%"> -->
+    <!-- <div id="computer"></div> -->
+    <!-- <p style="margin-left: 6%;">College can be difficult. Let us help</p>
+    
+    </div>
+     -->
+     <!-- <div class="get-started">
+      <a href="http://127.0.0.1:8000/register" class="btn">Get Started</a>
+    </div> -->
+    <!-- Image Carousel -->
+    <div class="swiper-container">
+     
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="{% static 'wordleapp/img1.png' %}" alt="Campus 1"></div>
+        <div class="swiper-slide"><img src="{% static 'wordleapp/img2.png' %}" alt="Campus 2"></div>
+        <div class="swiper-slide"><img src="{% static 'wordleapp/img1.png' %}" alt="Campus 3"></div>
+      </div>
+      <!-- Pagination & Navigation -->
+      <!-- <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div> -->
+    </div>
+
+    <!-- Features Section -->
+    <div class="features">
+      <div class="feature">
+        <i class="fa-solid fa-bullhorn"></i>
+        <div>
+          <h3>Issue Center</h3>
+          <br>
+        <h3>Report campus issues and track resolutions efficiently.</h3>
+        </div>
+        
+      </div>
+
+      <div class="feature">
+        <i class="fa-solid fa-search"></i>
+        <h3>Lost & Found</h3>
+        <br>
+        <h3>Locate lost items and report found ones easily.</h3>
+      </div>
+
+      <div class="feature">
+        <i class="fa-solid fa-users"></i>
+        <h3>Collaboration</h3>
+        <br>
+        <h3>Connect with students for projects and study groups.</h3>
+      </div>
+
+      <div class="feature">
+        <i class="fa-solid fa-chalkboard-teacher"></i>
+        <h3>Peer Tutor</h3>
+        <br>
+        <h3>Find peer tutors or offer tutoring to others.</h3>
+      </div>
+    </div>
+
+    <!-- Get Started Button -->
+    {% if not user.is_authenticated %}
+        <div class="get-started">
+            <a href="{% url 'register' %}" class="btn">Get Started</a>
+        </div>
+    {% endif %}
+
+    <!-- Swiper JS for Carousel -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        autoplay: { delay: 3000, disableOnInteraction: false }
+      });
+    </script>
+
+    </body>
+</html>

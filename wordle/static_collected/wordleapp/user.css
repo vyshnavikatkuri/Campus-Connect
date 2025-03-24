@@ -1,0 +1,192 @@
+body {
+    background-color: #adddb5;
+    overflow: hidden;
+  }
+  
+  div {
+    margin: 5% auto;
+  }
+  
+  .drop {
+    position: relative;
+      width: 20px;
+      height: 20px;
+    top: -30px;
+    margin: 0 auto;
+      background: #FFF;
+      -moz-border-radius: 20px;
+      -webkit-border-radius: 20px;
+      border-radius: 20px;
+    -moz-animation-name: drip;
+    -webkit-animation-name: drip;
+    animation-name: drip;
+    -moz-animation-timing-function: cubic-bezier(1,0,.91,.19);
+    -webkit-animation-timing-function: cubic-bezier(1,0,.91,.19);
+    animation-timing-function: cubic-bezier(1,0,.91,.19);
+    -moz-animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -moz-animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+  }
+  
+  .drop:before {
+    content: "";
+    position: absolute;
+    width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 30px solid rgba(255,255,255,1);
+    top: -22px;
+  }
+  
+  .wave {
+    position: relative;
+    opacity: 0;
+    top: 0;
+      width: 2px;
+      height: 1px;
+    border: #FFF 7px solid;
+      -moz-border-radius: 300px / 150px;
+      -webkit-border-radius: 300px / 150px;
+      border-radius: 300px / 150px;
+    -moz-animation-name: ripple;
+    -webkit-animation-name: ripple;
+    animation-name: ripple;
+    -moz-animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    -moz-animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -moz-animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+  }
+  
+  .wave:after {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    top: -5px;
+    left: -5px;
+      width: 2px;
+      height: 1px;
+    border: #FFF 5px solid;
+      -moz-border-radius: 300px / 150px;
+      -webkit-border-radius: 300px / 150px;
+      border-radius: 300px / 150px;
+    -moz-animation-name: ripple-2;
+    -webkit-animation-name: ripple-2;
+    animation-name: ripple-2;
+    -moz-animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -moz-animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+  }
+  
+  @keyframes ripple {
+      from {
+        opacity: 1;
+      }
+      to {
+        width: 600px;
+        height: 300px;
+        border-width: 1px;
+        top: -100px;
+        opacity: 0;
+      }
+  }
+  
+  @keyframes ripple-2 {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    100% {
+      width: 200px;
+      height: 100px;
+      border-width: 1px;
+      top: 100px;
+      left: 200px;
+    }
+  }
+  
+  @keyframes drip {
+      to {
+        top: 190px;
+      }
+  }
+
+
+@import url(https://fonts.googleapis.com/css?family=Arvo:700);
+@import url(https://fonts.googleapis.com/css?family=Seaweed+Script);
+
+.plate {
+  width: 410px;
+  margin: 1% auto;
+  animation: cssAnimation 0s 4s forwards;
+    visibility: hidden;
+}
+
+  
+  @keyframes cssAnimation {
+    to   { visibility: visible; }
+  }
+.shadow {
+  color: #fff;
+  font-family: Arvo;
+  font-weight: bold;
+  text-shadow:
+    -3px -3px 0 #222,
+    3px -3px 0 #222,
+    -3px 3px 0 #222,
+    3px 3px 0 #222,
+    4px 4px 0 #fff,
+    5px 5px 0 #fff,
+    6px 6px 0 #fff,
+    7px 7px 0 #fff;
+  line-height: 0.8em;
+  letter-spacing: 0.1em;
+  transform: scaleY(0.7);
+  -webkit-transform: scaleY(0.7);
+  -moz-transform: scaleY(0.7);
+  margin:0;
+  text-align: center;
+}
+.script {
+  font-family: "Seaweed Script";
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  position: relative;
+  margin:0;
+}
+.script span {
+  background-color: #adddb5;
+  padding: 0 0.3em;
+}
+.script:before {
+  content:"";
+  display: block;
+  position: absolute;
+  z-index:-1;
+  top: 50%;
+  width: 100%;
+  border-bottom: 3px solid #fff;
+}
+.text1 {
+  font-size: 60px;
+}
+.text2 {
+  font-size: 169px;
+}
+.text3 {
+  font-size: 100px;
+}

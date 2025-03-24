@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peer Tutor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wordleapp/lostandfound.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+      /* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #EFE9D5; /* Off-white background */
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #497D74; /* Dark blue */
+  /* padding: 15px; */
+  position: sticky;
+  top: 0;
+  height: 60px;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20%;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+}
+
+.nav-menu li {
+  margin: 0 15px;
+}
+
+.nav-menu a {
+  color: #EFE9D5; /* Off-white text */
+  text-decoration: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #71BBB2; /* Light teal hover effect */
+}
+
+/* Profile Icon */
+.profile-icon i {
+  font-size: 28px;
+  color: #EFE9D5; /* Off-white icon */
+  cursor: pointer;
+}
+
+.profile-icon i:hover {
+  color: #71BBB2; /* Light teal hover effect */
+}
+
+/* Content Styling */
+.content {
+  padding: 50px;
+  text-align: center;
+}
+
+h1 {
+  color: #27445D; /* Dark blue text */
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+  }
+}
+
+    </style>
+    <script>
+        function filterItems() {
+            let input = document.getElementById("search").value.toLowerCase();
+            let rows = document.querySelectorAll(".table-row");
+            rows.forEach(row => {
+                let itemName = row.children[0].textContent.toLowerCase();
+                let itemDesc = row.children[2].textContent.toLowerCase();
+                if (itemName.includes(input) || itemDesc.includes(input)) {
+                    row.style.display = "flex";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li><a href="http://127.0.0.1:8000/home/">Home</a></li>
+          <li><a href="http://127.0.0.1:8000/issuecentral/">Issue Center</a></li>
+          <li><a href="http://127.0.0.1:8000/lostandfound/">Lost & Found</a></li>
+          <li><a href="http://127.0.0.1:8000/collaboration/">Collaboration</a></li>
+          <li><a href="http://127.0.0.1:8000/peertutor/">Peer Tutor</a></li>
+      </ul>
+      <div class="profile-icon">
+        <i class="fa-solid fa-user-circle"></i>
+      </div>
+    </div>
+  </nav>
+    
+    <div class="container">
+        <h2>Available Tutors</h2>
+        <ul class="responsive-table">
+          <li class="table-header">
+            <div class="col col-1" style="flex-basis: 20%;">Name</div>
+            <div class="col col-2" style="flex-basis: 20%;">Subject</div>
+            <div class="col col-3" style="flex-basis: 40%;">Expected Payment</div>
+            <div class="col col-4" style="flex-basis: 20%;">Contact Details</div>
+          </li>
+          {% for tutor in tutors %}
+          <li class="table-row">
+            <!-- <div class="col col-1" data-label="Item Id">{{ item_lost.id }}</div> -->
+            <div class="col col-1" style="flex-basis: 20%;">{{ tutor.name }}</div>
+            <div class="col col-2" style="flex-basis: 20%;">{{ tutor.subject }}</div>
+            <div class="col col-3" style="flex-basis: 40%;">{{ tutor.payment }}</div>
+            <div class="col col-4" style="flex-basis: 20%;">{{ tutor.contact }}</div>
+          </li>
+          {% endfor %}
+        </ul>
+    </div>
+    
+    <div class="container">
+        <h2>Tutor Requests</h2>
+        <ul class="responsive-table">
+          <li class="table-header">
+            
+            <div class="col col-1" style="flex-basis: 20%;">Name</div>
+            <div class="col col-2" style="flex-basis: 20%;">Subject</div>
+            <div class="col col-3" style="flex-basis: 40%;">Payment Offered</div>
+            <div class="col col-4" style="flex-basis: 20%;">Contact Details</div>
+          </li>
+          {% for tutorwanted in tutors_wanted %}
+          <li class="table-row">
+            <div class="col col-1" style="flex-basis: 20%;">{{ tutorwanted.name }}</div>
+            <div class="col col-2" style="flex-basis: 20%;">{{ tutorwanted.subject }}</div>
+            <div class="col col-3" style="flex-basis: 40%;">{{ tutorwanted.payment }}</div>
+            <div class="col col-4" style="flex-basis: 20%;">{{ tutorwanted.contact }}</div>
+          </li>
+          {% endfor %}
+        </ul>
+    </div>
+    
+    <!-- <div style="display:flex; flex-direction: row; justify-content: space-between; align-items: center; margin:3%">
+      <a href="/lostform/"><button>Post Lost Item</button></a>  
+      <a href="/foundform/"><button>Post Found Item</button></a> 
+    </div>
+</body>
+</html>
+ -->
+  <div style="display:flex; flex-direction: row; justify-content: space-between; align-items: center; margin:3%">
+    <img src="{% static 'wordleapp/peertutor.png' %}" alt="Description of the image" style="width:400px; height:auto;">
+            <a href="http://127.0.0.1:8000/tutor-form/">
+          <button>
+            <span aria-hidden="true">Register as Tutor</span>
+            <span></span>
+            <span>Register as Tutor</span>
+          </button> 
+          </a>  
+          <a href="http://127.0.0.1:8000/tutorwanted-form/">
+          <button>
+            <span aria-hidden="true">Request Tutor</span>
+            <span></span>
+            <span>Request Tutor</span>
+          </button>  
+          </a> 
+        </div>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </body>
+</html>

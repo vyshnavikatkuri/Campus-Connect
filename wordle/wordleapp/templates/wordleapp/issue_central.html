@@ -105,6 +105,54 @@ h1 {
     margin: 10px 0;
   }
 }
+/* Dropdown Container */
+.profile-icon {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Icon */
+#profile-icon {
+  font-size: 28px;
+  color: #EFE9D5;
+  cursor: pointer;
+}
+
+#profile-icon:hover {
+  color: #71BBB2;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #497D74; /* Match navbar */
+  min-width: 120px;
+  border: 1px solid #27445D;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+/* Dropdown Links */
+.dropdown-content a {
+  color: #EFE9D5;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-weight: bold;
+}
+
+.dropdown-content a:hover {
+  background-color: #71BBB2;
+  color: #27445D;
+}
+
+
+ 
+
 
     </style>
     <link
@@ -117,7 +165,23 @@ h1 {
   />
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const profileIcon = document.querySelector(".profile-icon i");
+    const dropdown = document.getElementById("dropdown-content");
+
+    profileIcon.addEventListener("click", function (e) {
+      e.stopPropagation(); // Prevent click bubbling
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+
+    // Hide dropdown when clicking outside
+    window.addEventListener("click", function () {
+      dropdown.style.display = "none";
+    });
+  });
+  </script>
+</head>
   <body>
     <nav class="navbar">
         <div class="nav-container">
@@ -129,7 +193,10 @@ h1 {
               <li><a href="http://127.0.0.1:8000/peertutor/">Peer Tutor</a></li>
           </ul>
           <div class="profile-icon">
-            <i class="fa-solid fa-user-circle"></i>
+            <i class="fa-solid fa-user-circle" is="profile-icon"></i>
+            <div class="dropdown-content" id="dropdown-content">
+              <a href="{% url 'logout' %}">Logout</a>
+            </div>  
           </div>
         </div>
       </nav>
@@ -170,24 +237,25 @@ h1 {
                     <div class="comment-post">
                         <div class="col-xs-2"></div>
                         <p>Comments </p>
+                        
                         <div class="col-xs-9">
                             
                             <br>
-                            <p1>@733054</p1>
+                            
                             <p class="comment-content">{{ issue.comment1 }}</p>
                         </div>
                     </div>
                     <div class="comment-post">
                         <div class="col-xs-2"></div>
                         <div class="col-xs-9">
-                            <p1>@733124</p1>
+                           
                             <p class="comment-content">{{ issue.comment2 }}</p>
                         </div>
                     </div>
                     <div class="comment-post">
                         <div class="col-xs-2"></div>
                         <div class="col-xs-9">
-                            <p>@732189</p>
+                            
                             <p class="comment-content">{{ issue.comment3 }}</p>
                         </div>
                     </div>
@@ -212,6 +280,7 @@ h1 {
                             <form action="{% url 'process_comment' %}" method='post'>
                                 {% csrf_token %}
                             <!-- <textarea readonly name="issue_id">{{ issue.id }}</textarea readonly> -->
+                            <input type="hidden" name="issue_id" value="{{ issue.id }}">
                             <textarea name="comment" placeholder="Add Comment"></textarea>
                             <button class="btn btn-default pull-right" type="submit">Add Comment</button></form>
                         </div>

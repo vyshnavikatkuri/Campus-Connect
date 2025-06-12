@@ -4,6 +4,7 @@ from .models import *
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth import logout
 from .models import User
 
 def register(request):
@@ -52,11 +53,37 @@ def login(request):
             return redirect('login')
 
     return render(request, "wordleapp/login.html")
+def customlogout(request):
+    logout(request)
+    return redirect('login') 
 
 def home(request):
     return render(request, "wordleapp/home.html")
 def land(request):
     return render(request, "wordleapp/user.html")
+def lostandfound(request):
+    return render(request, 'wordleapp/lost_and_found.html', get_lost_and_found_context())
+
+def get_lost_and_found_context():
+    return {
+        'items_lost': LostItem.objects.filter(resolved=False),
+        'items_found': FoundItem.objects.filter(resolved=False)
+    }
+from django.shortcuts import get_object_or_404
+
+def resolve_item(request, lost_id=None, found_id=None):
+    if lost_id:
+        item = get_object_or_404(LostItem, id=lost_id)
+    elif found_id:
+        item = get_object_or_404(FoundItem, id=found_id)
+    else:
+        return render(request, 'wordleapp/lost_and_found.html', get_lost_and_found_context()) # or wherever your default page is
+
+    item.resolved = True
+    item.save()
+    return redirect('lostandfound')
+# Redirect to the list page
+
 
 # View to process the lost item form and add new items
 def process_item_lost(request):
@@ -77,10 +104,9 @@ def process_item_lost(request):
         )
         item.save()
 
-        # Fetch updated items to display
-        items_lost = LostItem.objects.all()
-        items_found = FoundItem.objects.all()
-        return render(request, 'wordleapp/lost_and_found.html', {'items_lost': items_lost, 'items_found' : items_found})
+       
+    return redirect('lostandfound')
+
 
 # View to process the found item form and add new items
 def process_item_found(request):
@@ -101,10 +127,8 @@ def process_item_found(request):
         )
         item.save()
 
-        # Fetch updated items to display
-        items_lost = LostItem.objects.all()
-        items_found = FoundItem.objects.all()
-        return render(request, 'wordleapp/lost_and_found.html', {'items_lost': items_lost, 'items_found' : items_found})
+       
+        return redirect('lostandfound')
 
 def process_issue(request):
     if request.method == 'POST':

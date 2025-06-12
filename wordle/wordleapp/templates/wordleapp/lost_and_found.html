@@ -103,9 +103,68 @@ h1 {
     margin: 10px 0;
   }
 }
+/* Dropdown Container */
+.profile-icon {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Icon */
+#profile-icon {
+  font-size: 28px;
+  color: #EFE9D5;
+  cursor: pointer;
+}
+
+#profile-icon:hover {
+  color: #71BBB2;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #497D74; /* Match navbar */
+  min-width: 120px;
+  border: 1px solid #27445D;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+/* Dropdown Links */
+.dropdown-content a {
+  color: #EFE9D5;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-weight: bold;
+}
+
+.dropdown-content a:hover {
+  background-color: #71BBB2;
+  color: #27445D;
+}
+
 
     </style>
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const profileIcon = document.querySelector(".profile-icon i");
+    const dropdown = document.getElementById("dropdown-content");
+
+    profileIcon.addEventListener("click", function (e) {
+      e.stopPropagation(); // Prevent click bubbling
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+
+    // Hide dropdown when clicking outside
+    window.addEventListener("click", function () {
+      dropdown.style.display = "none";
+    });
+  });
         function filterItems() {
             let input = document.getElementById("search").value.toLowerCase();
             let rows = document.querySelectorAll(".table-row");
@@ -133,7 +192,10 @@ h1 {
           <li><a href="http://127.0.0.1:8000/peertutor/">Peer Tutor</a></li>
       </ul>
       <div class="profile-icon">
-        <i class="fa-solid fa-user-circle"></i>
+        <i class="fa-solid fa-user-circle" id="profile-icon"></i>
+        <div class="dropdown-content" id="dropdown-content">
+          <a href="{% url 'logout' %}">Logout</a>
+        </div>      
       </div>
     </div>
   </nav>
@@ -157,6 +219,9 @@ h1 {
             <div class="col col-2" data-label="Date Lost" style="flex-basis: 20%;">{{ item_lost.date_lost }}</div>
             <div class="col col-3" data-label="Item Description" style="flex-basis: 40%;">{{ item_lost.item_descr }}</div>
             <div class="col col-4" data-label="Date Lost" style="flex-basis: 20%;"><div>{{ item_lost.owner_name }}</div> {{ item_lost.owner_contact }}</div>
+            <div class="col col-5" data-label="Action" style="flex-basis: 20%;">
+              <a href="{% url 'resolve_lost' item_lost.id %}" class="btn btn-sm btn-success">Mark as Found</a>
+            </div>
           </li>
           {% endfor %}
         </ul>
@@ -180,6 +245,9 @@ h1 {
             <div class="col col-2" data-label="date_found" style="flex-basis: 20%;">{{ item_found.date_found }}</div>
             <div class="col col-3" data-label="Item Description" style="flex-basis: 40%;">{{ item_found.item_descr }}</div>
             <div class="col col-4" data-label="Finder's Name" style="flex-basis: 20%;"><div>{{ item_found.finder_name }}</div> {{ item_found.finder_contact }}</div>
+            <div class="col col-5" data-label="Action" style="flex-basis: 20%;">
+              <a href="{% url 'resolve_found' item_found.id %}" class="btn btn-sm btn-success">Mark as Returned</a>
+            </div>
           </li>
           {% endfor %}
         </ul>

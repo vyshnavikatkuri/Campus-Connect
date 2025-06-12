@@ -43,7 +43,7 @@ class LostItem(models.Model):
     date_lost = models.DateField(null=True, blank=True)  # Automatically adds the date the item was lost
     owner_name = models.CharField(max_length=255, null=True, blank=True)  # Name of the person who lost the item
     owner_contact = models.CharField(max_length=15, null=True, blank=True)  # Contact information of the owner
-
+    resolved = models.BooleanField(default=False)
     def __str__(self):
         return f"{self.item_name} - {self.item_descr}"
 
@@ -54,7 +54,7 @@ class FoundItem(models.Model):
     date_found = models.DateField(null=True, blank=True)  # Automatically adds the date the item was found
     finder_name = models.CharField(max_length=255, null=True, blank=True)  # Name of the person who found the item
     finder_contact = models.CharField(max_length=15, null=True, blank=True)  # Contact information of the finder
-
+    resolved = models.BooleanField(default=False)
     def __str__(self):
         return f"{self.item_name} - {self.item_descr}"
         

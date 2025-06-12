@@ -191,7 +191,7 @@ h1 {
           <li><a href="http://127.0.0.1:8000/collaboration/">Collaboration</a></li>
           <li><a href="http://127.0.0.1:8000/peertutor/">Peer Tutor</a></li> -->
           <li><a href="{% url 'home' %}">Home</a></li>
-<li><a href="{% url 'issuecentral' %}">Issue Center</a></li>
+<li><a href="{% url 'issue_central' %}">Issue Center</a></li>
 <li><a href="{% url 'lostandfound' %}">Lost & Found</a></li>
 <li><a href="{% url 'collaboration' %}">Collaboration</a></li>
 <li><a href="{% url 'peertutor' %}">Peer Tutor</a></li>
@@ -269,7 +269,7 @@ h1 {
   <div style="display:flex; flex-direction: row; justify-content: space-between; align-items: center; margin:3%">
           <div class="sup" role="img" aria-label="cartoon of a lost-and-found wooden box with baseballs, a football, a racquet... (it's a reference to Pixar's Lou shortfilm)"></div>
             <!-- <a href="http://127.0.0.1:8000/lostform/"> -->
-              <a href="{% url 'lostform' %}"></a>
+              <a href="{% url 'lost_form' %}">
           <button>
             <span aria-hidden="true">Post Lost Item</span>
             <span></span>
@@ -277,7 +277,7 @@ h1 {
           </button> 
           </a>  
           <!-- <a href="http://127.0.0.1:8000/foundform/"> -->
-            <a href="{% url 'foundform' %}"></a>
+            <a href="{% url 'found_form' %}">
           <button>
             <span aria-hidden="true">Post Lost Item</span>
             <span></span>

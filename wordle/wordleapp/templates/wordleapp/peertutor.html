@@ -192,7 +192,7 @@ h1 {
           <li><a href="http://127.0.0.1:8000/collaboration/">Collaboration</a></li>
           <li><a href="http://127.0.0.1:8000/peertutor/">Peer Tutor</a></li> -->
           <li><a href="{% url 'home' %}">Home</a></li>
-<li><a href="{% url 'issuecentral' %}">Issue Center</a></li>
+<li><a href="{% url 'issue_central' %}">Issue Center</a></li>
 <li><a href="{% url 'lostandfound' %}">Lost & Found</a></li>
 <li><a href="{% url 'collaboration' %}">Collaboration</a></li>
 <li><a href="{% url 'peertutor' %}">Peer Tutor</a></li>
@@ -259,7 +259,7 @@ h1 {
   <div style="display:flex; flex-direction: row; justify-content: space-between; align-items: center; margin:3%">
     <img src="{% static 'wordleapp/peertutor.png' %}" alt="Description of the image" style="width:400px; height:auto;">
             <!-- <a href="http://127.0.0.1:8000/tutor-form/"> -->
-              <a href="{% url 'tutor-form' %}"></a>
+              <a href="{% url 'tutorform' %}"></a>
           <button>
             <span aria-hidden="true">Register as Tutor</span>
             <span></span>
@@ -267,7 +267,7 @@ h1 {
           </button> 
           </a>  
           <!-- <a href="http://127.0.0.1:8000/tutorwanted-form/"> -->
-            <a href="{% url 'tutorwanted-form' %}"></a>
+            <a href="{% url 'tutorwantedform' %}"></a>
           <button>
             <span aria-hidden="true">Request Tutor</span>
             <span></span>

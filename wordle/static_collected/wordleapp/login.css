@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+body{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    overflow:hidden;
+}
+p{
+    text-align: left;
+    color: #27445D;
+    font-size: medium;
+    font-family: "Lilita One", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+   }
+.myVideo{
+    top: -10px;
+    width:100%;
+    position:absolute;
+}
+.myVideo2{
+    top: 600px;
+    width:100%;
+    position:absolute; 
+    transform: rotate(180deg);
+}
+.login{
+    position: relative;
+    margin-top:100px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    border-radius: 20px;
+    height:fit-content; 
+    background-color: #27445D;
+}   
+.login2 img{
+    width:350px;
+}
+.card {
+    width:350px;
+    padding: 1.9rem 1.2rem;
+    text-align: center;
+    background-color:#bdd8d5;
+    height:fit-content;
+    border-radius:20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin:20px;
+    padding-top:50px;
+    padding-bottom:50px;
+}  
+   /*Inputs*/
+   .field {
+    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    background-color:#f5f5f5;
+    border-radius: 4px;
+    padding: .5em 1em;
+    height:30px;
+   }
+   
+   .input-icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: #497D74;
+   }
+   
+   .input-field {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color:black;
+    font-size: medium;
+   }
+   
+   /*Text*/
+   .title {
+    margin-bottom: 1rem;
+    color:#27445D;
+    font-family: "Lilita One", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: xx-large;
+   }
+   
+   /*Buttons*/
+   .btn {
+    margin: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.0em;
+    text-transform: uppercase;
+    padding: 0.6em 1.2em;
+    background-color: #27445D;
+    color: #fffcf0;
+    box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
+    transition: all .3s ease-in-out;
+   }
+   
+   .btn-link {
+    color:#800080;
+    display: block;
+    font-size: .75em;
+    transition: color .3s ease-out;
+   }
+   
+   /*Hover & focus*/
+   .field input:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+   }
+   
+   .btn:hover {
+    background-color: #5e6681;
+    color: #EFE9D5;
+    box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
+   }
+   
+   .btn-link:hover {
+    color: #EFE9D5;
+   }
+   .ques{
+    padding: 0%;
+    margin: 0%;
+    color:#27445D;
+    font-family: "Lilita One", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: large;
+  text-align: center;
+   }
+   
+.twofields{
+    display: flex;
+    align-items: center;
+}
+
+.small{
+    width:200px;
+    margin-right:100px;
+    margin-top:30px;
+}
+.three{
+    margin-right:30px;
+}
+:root {
+    --gray: #f5f5f5;
+    --darkgray:#f5f5f5;
+  }
+  
+  select {
+    /* Reset Select */
+    appearance: none;
+    outline: 10px red;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: #27445D;
+    font-weight: 900;
+    font-style: normal;
+    font-size: small;
+    text-align: center;
+    background-color: var(--darkgray);
+    background-image: none;
+    cursor: pointer;
+  }
+  /* Remove IE arrow */
+  select::-ms-expand {
+    display: none;
+  }
+  /* Custom Select wrapper */
+  .select {
+    position: relative;
+    display: flex;
+    width: 13em;
+    height: 2em;
+    border-radius: .25em;
+    overflow: hidden;
+  }
+  /* Arrow */
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5em;
+    color: #f5f5f5;
+    background-color:#27445D;
+    transition: .25s all ease;
+    pointer-events: none;
+  }
+  /* Transition */
+  .select:hover::after {
+    color:#f5f5f5;
+    background-color: #27445D;
+  }
+  
+
+  

@@ -4,7 +4,7 @@ from .views import submit_resume
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
-    path('', views.login, name='land'),
+    path('', views.home, name='land'),
     path('home/', views.home, name='home'),
     path('login/', views.login, name='login'),
     path('register/', views.register, name='register'),

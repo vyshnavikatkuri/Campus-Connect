@@ -28,11 +28,16 @@
       <div class="navbar">
         <div class="nav-container">
           <ul class="menu-items" style="margin-left: 100px;">
-            <li><a href="http://127.0.0.1:8000/home/">Home</a></li>
+            <!-- <li><a href="http://127.0.0.1:8000/home/">Home</a></li>
             <li><a href="http://127.0.0.1:8000/issuecentral/">Issue Center</a></li>
             <li><a href="http://127.0.0.1:8000/lostandfound/">Lost & Found</a></li>
             <li><a href="http://127.0.0.1:8000/collaboration/">Collaboration</a></li>
-            <li><a href="http://127.0.0.1:8000/peertutor/">Peer Tutor</a></li>
+            <li><a href="http://127.0.0.1:8000/peertutor/">Peer Tutor</a></li> -->
+              <li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'issuecentral' %}">Issue Center</a></li>
+<li><a href="{% url 'lostandfound' %}">Lost & Found</a></li>
+<li><a href="{% url 'collaboration' %}">Collaboration</a></li>
+<li><a href="{% url 'peertutor' %}">Peer Tutor</a></li>
           </ul>
     
           <!-- <div class="profile-icon" style="margin-left: 30px;">

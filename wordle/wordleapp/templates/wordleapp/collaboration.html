@@ -175,12 +175,18 @@ h1 {
     <nav class="navbar" style="margin-right: 20px;">
       <div class="nav-container" >
         <ul class="nav-menu" style="color: #EFE9D5; ">
-          <li><a href="http://127.0.0.1:8000/home/" style="color: #EFE9D5; font-size: 16px;" >Home</a></li>
+          <!-- <li><a href="http://127.0.0.1:8000/home/" style="color: #EFE9D5; font-size: 16px;" >Home</a></li>
             <li><a href="http://127.0.0.1:8000/issuecentral/" style="color: #EFE9D5; font-size: 16px;">Issue Center</a></li>
             <li><a href="http://127.0.0.1:8000/lostandfound/" style="color: #EFE9D5; font-size: 16px;">Lost & Found</a></li>
             <li><a href="http://127.0.0.1:8000/collaboration/" style="color: #EFE9D5; font-size: 16px;">Collaboration</a></li>
-            <li><a href="http://127.0.0.1:8000/peertutor/" style="color: #EFE9D5; font-size: 16px;">Peer Tutor</a></li>
-        </ul>
+            <li><a href="http://127.0.0.1:8000/peertutor/" style="color: #EFE9D5; font-size: 16px;">Peer Tutor</a></li> -->
+        <li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'issuecentral' %}">Issue Center</a></li>
+<li><a href="{% url 'lostandfound' %}">Lost & Found</a></li>
+<li><a href="{% url 'collaboration' %}">Collaboration</a></li>
+<li><a href="{% url 'peertutor' %}">Peer Tutor</a></li>
+
+          </ul>
         <div class="profile-icon" style="margin-right: 20px;">
           <i class="fa-solid fa-user-circle" id="profile-icon"></i>
           <div class="dropdown-content" id="dropdown-content">
@@ -190,7 +196,9 @@ h1 {
       </div>
     </nav>
     <div style="display:flex; flex-direction: row; justify-content: space-between; align-items: center; margin:3%; z-index: -1;">
-      <a href="http://127.0.0.1:8000/collaborationform/">
+      <!-- <a href="http://127.0.0.1:8000/collaborationform/"> -->
+        <a href="{% url 'collaborationform' %}">
+
         <button>
           <span aria-hidden="true">Post Issue</span>
           <span></span>

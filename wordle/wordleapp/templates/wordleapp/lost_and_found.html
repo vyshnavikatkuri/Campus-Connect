@@ -185,11 +185,17 @@ h1 {
   <nav class="navbar">
     <div class="nav-container">
       <ul class="nav-menu">
-        <li><a href="http://127.0.0.1:8000/home/">Home</a></li>
+        <!-- <li><a href="http://127.0.0.1:8000/home/">Home</a></li>
           <li><a href="http://127.0.0.1:8000/issuecentral/">Issue Center</a></li>
           <li><a href="http://127.0.0.1:8000/lostandfound/">Lost & Found</a></li>
           <li><a href="http://127.0.0.1:8000/collaboration/">Collaboration</a></li>
-          <li><a href="http://127.0.0.1:8000/peertutor/">Peer Tutor</a></li>
+          <li><a href="http://127.0.0.1:8000/peertutor/">Peer Tutor</a></li> -->
+          <li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'issuecentral' %}">Issue Center</a></li>
+<li><a href="{% url 'lostandfound' %}">Lost & Found</a></li>
+<li><a href="{% url 'collaboration' %}">Collaboration</a></li>
+<li><a href="{% url 'peertutor' %}">Peer Tutor</a></li>
+
       </ul>
       <div class="profile-icon">
         <i class="fa-solid fa-user-circle" id="profile-icon"></i>
@@ -262,14 +268,16 @@ h1 {
  -->
   <div style="display:flex; flex-direction: row; justify-content: space-between; align-items: center; margin:3%">
           <div class="sup" role="img" aria-label="cartoon of a lost-and-found wooden box with baseballs, a football, a racquet... (it's a reference to Pixar's Lou shortfilm)"></div>
-            <a href="http://127.0.0.1:8000/lostform/">
+            <!-- <a href="http://127.0.0.1:8000/lostform/"> -->
+              <a href="{% url 'lostform' %}"></a>
           <button>
             <span aria-hidden="true">Post Lost Item</span>
             <span></span>
             <span>Post Lost Item</span>
           </button> 
           </a>  
-          <a href="http://127.0.0.1:8000/foundform/">
+          <!-- <a href="http://127.0.0.1:8000/foundform/"> -->
+            <a href="{% url 'foundform' %}"></a>
           <button>
             <span aria-hidden="true">Post Lost Item</span>
             <span></span>
